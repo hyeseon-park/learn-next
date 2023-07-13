@@ -5,6 +5,11 @@ async function getPost(postId: string) {
       next: { revalidate: 10 },
     }
   );
+
+  if (!res.ok) {
+    throw new Error("Failed to fetch data");
+  }
+
   const data = await res.json();
   return data;
 }

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import CreatePost from "./CreatePost";
 
 async function getPosts() {
   const res = await fetch("https://jsonplaceholder.typicode.com/posts", {
@@ -13,6 +14,7 @@ const PostsPage = async () => {
   return (
     <div>
       <h1>Posts</h1>
+      <CreatePost />
       {posts?.map((post) => {
         return <PostItem key={post.id} post={post} />;
       })}
